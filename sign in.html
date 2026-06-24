@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Spotify Login</title>
+  <link rel="icon" type="image" href="img/social.png" />
+  <link rel="stylesheet" href="css/sign in.css" />
+</head>
+<body>
+  <div class="login-container">
+    <div class="mar">
+      <img src="img/social.png" alt="Spotify Logo" class="logo" />
+      <h2>Log in to Spotify</h2>
+
+      <button class="btn">
+        <img src="img/google.png" alt="Google Icon" />
+        <a href="https://www.google.com" target="_blank">Continue with Google</a>
+      </button>
+
+      <button class="btn">
+        <img src="img/facebook.png" alt="Facebook Icon" />
+        <a href="https://www.facebook.com" target="_blank">Continue with Facebook</a>
+      </button>
+
+      <button class="btn-apple">
+        <img src="img/apple.png" alt="Apple Icon" />
+        <a href="https://www.apple.com" target="_blank">Continue with Apple</a>
+      </button>
+
+      <br /><br />
+    </div>
+
+    <div class="line"></div>
+
+    <div class="mar">
+      <br />
+      <p class="para">Email or username</p>
+      <input type="text" id="loginEmail" placeholder="Email or username" />
+
+      <p class="para">Password</p>
+      <input type="password" id="loginPassword" placeholder="Password" />
+
+      <p class="error" id="loginError" style="display: none; color: red;">
+        Invalid Email or Password.
+      </p>
+
+      <button class="btn login-btn" onclick="login()">Log In</button>
+
+      <p class="forgot"><a href="#">Forgot your password?</a></p>
+
+      <div class="signup">
+        Don't have an account? <a href="signup.html">Sign up for Spotify</a>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    function login() {
+      const email = document.getElementById('loginEmail').value;
+      const password = document.getElementById('loginPassword').value;
+
+      const savedEmail = localStorage.getItem('userEmail');
+      const savedPassword = localStorage.getItem('userPassword');
+
+      if (email === savedEmail && password === savedPassword) {
+        alert('Login successful!');
+        window.location.href = 'index.html';
+      } else {
+        document.getElementById('loginError').style.display = 'block';
+      }
+    }
+  </script>
+
+</body>
+</html>
+

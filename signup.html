@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Spotify Sign Up</title>
+  <link rel="icon" type="image" href="img/social.png" />
+  <link rel="stylesheet" href="css/sign up.css" />
+</head>
+<body>
+  <div class="container">
+    <img src="img/social.png" alt="Spotify Logo" class="logo" />
+    <h1>Sign up to <br /> start listening</h1>
+
+    <p class="para">Email address</p>
+    <input type="text" id="signupEmail" placeholder="name@domain.com" />
+
+    <p class="para">Password</p>
+    <input type="password" id="signupPassword" placeholder="Enter Password" />
+
+    <p class="error" id="error" style="display: none; color: red;">
+      Please fill both fields.
+    </p>
+
+    <button class="next" onclick="register()">Next</button>
+
+    <div class="divider"><span></span> or <span></span></div>
+
+    <button class="btn">
+      <img src="img/google.png" alt="Google Icon" />
+      <a href="https://www.google.com" target="_blank">Sign up with Google</a>
+    </button>
+
+    <button class="btn">
+      <img src="img/facebook.png" alt="Facebook Icon" />
+      <a href="https://www.facebook.com" target="_blank">Sign up with Facebook</a>
+    </button>
+
+    <button class="btn">
+      <img src="img/apple.png" alt="Google Icon" />
+      <a href="https://www.apple.com" target="_blank">Sign up with Apple</a>
+    </button>
+
+    <hr />
+    <p class="login">Already have an account? <a href="sign in.html">Log in here.</a></p>
+    <p class="recaptcha-text">
+      This site is protected by reCAPTCHA and the Google
+      <a href="#">Privacy Policy</a> and
+      <a href="#">Terms of Service</a> apply.
+    </p>
+  </div>
+
+  <script>
+    function register() {
+      const email = document.getElementById('signupEmail').value;
+      const password = document.getElementById('signupPassword').value;
+
+      if (email === "" || password === "") {
+        document.getElementById('error').style.display = 'block';
+      } else {
+        localStorage.setItem('userEmail', email);
+        localStorage.setItem('userPassword', password);
+        alert('You are Registered Successfully');
+        window.location.href = 'sign in.html'; 
+      }
+    }
+  </script>
+
+</body>
+</html>
